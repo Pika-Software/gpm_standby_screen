@@ -26,7 +26,7 @@ do
     local theme = {}
     theme.__index = theme
 
-    function theme:Render( w, h )
+    function theme:Paint( w, h )
     end
 
     function theme:Init()
@@ -221,7 +221,7 @@ do
                 if (current ~= nil) then
                     cam_Start2D()
                         surface_SetAlphaMultiplier( 1 - alpha )
-                        current:Render( GetResolution() )
+                        current:Paint( GetResolution() )
                     cam_End2D()
                 end
             end

@@ -394,7 +394,7 @@ do
         blur = new == "1"
     end, Theme.Name)
 
-    function Theme:Render( w, h )
+    function Theme:Paint( w, h )
         -- Background
         surface_SetDrawColor( self.Color )
         surface_DrawRect( 0, 0, w, h )
