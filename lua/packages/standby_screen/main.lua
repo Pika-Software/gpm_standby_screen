@@ -29,6 +29,9 @@ do
     function theme:Paint( w, h )
     end
 
+    function theme:Think()
+    end
+
     function theme:Init()
     end
 
