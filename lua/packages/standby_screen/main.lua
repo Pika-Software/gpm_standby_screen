@@ -42,9 +42,9 @@ do
         return getmetatable( any ) == theme
     end
 
-    function Create( theme )
-        local new = setmetatable( theme, theme )
-        themes[ theme.Name ] = new
+    function Create( data )
+        local new = setmetatable( data, theme )
+        themes[ data.Name ] = new
         return new
     end
 
