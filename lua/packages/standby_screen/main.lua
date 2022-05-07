@@ -16,7 +16,7 @@ module( "standby_screen", package.seeall )
 
 -- Screen Table
 local themes = {}
-function GetAll()
+function GetThemes()
     return themes
 end
 
@@ -145,16 +145,6 @@ do
 
 end
 
--- Themes
-do
-
-    function GetThemes()
-        local files = file.Find( theme_path .. "*", "LUA" )
-        return files
-    end
-
-end
-
 -- Render Scene
 do
 
@@ -242,7 +232,8 @@ do
 
     local env = table_Copy( _G )
 
-    for num, fl in ipairs( GetThemes() ) do
+    local files = file.Find( theme_path .. "*", "LUA" )
+    for num, fl in ipairs( files ) do
         local func = CompileFile( theme_path .. fl )
 
         env.Theme = {}
@@ -276,8 +267,8 @@ end)
 
 concommand.Add("standby_screen_themes", function()
     local num = 0
-    for name, data in pairs( GetAll() ) do
+    for name, data in pairs( GetThemes() ) do
         num = num + 1
-        logger:info( "{1}. {2}", num, name )
+        logger:info( "{1}. {2} - {3}", num, name, data.Description )
     end
 end)
