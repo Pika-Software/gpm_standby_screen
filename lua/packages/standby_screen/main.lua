@@ -90,10 +90,8 @@ do
 
     hook.Add("GameFocusChanged", "FpsController", function( has_focus )
         if (has_focus) then
-            if (CLIENT_FPS == nil) then return end
-            RunConsoleCommand( "fps_max", CLIENT_FPS )
+            RunConsoleCommand( "fps_max", 144 )
         else
-            CLIENT_FPS = cvars.Number( "fps_max", 75 )
             RunConsoleCommand( "fps_max", min_fps )
         end
     end)
