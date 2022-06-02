@@ -1,3 +1,5 @@
+language.Add( "dots.render_disabled", "Render is disabled" )
+
 Theme.Name = "Dots"
 Theme.Description = "Funny flying dots on the screen and connects with other dots."
 
@@ -282,9 +284,9 @@ function Theme:SetStyle( num )
     self.TextColor = style.Colors.Text
     self.TextShadowColor = style.Colors.TextShadow
 
-    self.Text = utf8.force( CreateClientConVar( "dot_standby_screen_text", "Render is disabled", true, false, " - Text on standby screen." ):GetString() )
+    self.Text = language.GetPhrase( utf8.force( CreateClientConVar( "dot_standby_screen_text", "#dots.render_disabled", true, false, " - Text on standby screen." ):GetString() ) )
     cvars.AddChangeCallback("dot_standby_screen_text", function( name, old, new )
-        self.Text = utf8.force( new )
+        self.Text = language.GetPhrase( utf8.force( new ) )
     end, self.Name)
 
     self.TextFont = style.Text.Font
